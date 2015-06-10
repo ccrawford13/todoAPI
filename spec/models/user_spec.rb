@@ -7,4 +7,14 @@ RSpec.describe User, type: :model do
   it{ should validate_presence_of :email }
   it{ should validate_presence_of :password }
   it{ should validate_presence_of :password_confirmation }
+
+  describe "#full_name" do
+
+    let(:user) { create(:user, first_name: 'jon', last_name: 'smith') }
+
+    it "outputs capitalized full name" do
+        expect(user.full_name).to eq 'Jon Smith'
+    end
+  end
+  
 end

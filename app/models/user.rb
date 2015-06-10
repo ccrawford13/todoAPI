@@ -12,4 +12,9 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_presence_of :password
   validates_presence_of :password_confirmation
+
+  def full_name
+    [first_name, last_name].join(" ").titleize
+  end
+  
 end
