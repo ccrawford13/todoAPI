@@ -23,8 +23,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'puma'
 # Haml for simplified views
 gem 'haml-rails'
+gem 'haml_lint'
 # User authentication
 gem 'devise'
+# Active Model Serializers
+gem 'active_model_serializers'
+# Faker - Seed Development Env
+gem 'faker'
 
 
 group :development, :test do
