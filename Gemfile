@@ -30,6 +30,8 @@ gem 'devise'
 gem 'active_model_serializers'
 # Faker - Seed Development Env
 gem 'faker'
+# Foundation Front End Framework
+gem 'foundation-rails'
 
 
 group :development, :test do
