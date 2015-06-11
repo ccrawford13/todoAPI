@@ -35,5 +35,4 @@ class ApiController < ApplicationController
 
     render json: response.to_json, status: status
   end
-
 end
