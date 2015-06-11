@@ -1,10 +1,15 @@
 class ApiController < ApplicationController
 
   skip_before_action :verify_authenticity_token
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   respond_to :json
 
   private
+
+  def record_not_found
+    render json: { message: "ERROR - Object Could Not Be Found" }, status: :not_found
+  end
 
   def authenticate_user
     permission_denied_error unless authenticated?

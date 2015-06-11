@@ -12,6 +12,12 @@ class Api::ListsController < ApiController
     end
   end
 
+  def destroy
+    list = List.find(params[:id])
+    list.destroy
+    render json: {}, status: :no_content
+  end
+
   private
 
   def list_params
