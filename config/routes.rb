@@ -5,7 +5,11 @@ Rails.application.routes.draw do
       resources :lists
     end
     resources :lists, only: [] do
-      resources :items, only: [:create, :destroy], shallow: true
+      resources :items, only: [:create, :update, :destroy], shallow: true do
+        member do
+          patch 'toggle_completed'
+        end
+      end
     end
   end
 
