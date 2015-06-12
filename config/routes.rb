@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
-    resources :users do
-      resources :lists
+    resources :users, only: [:index, :create, :destroy] do
+      resources :lists, only: [:create, :update, :destroy], shallow: true
     end
     resources :lists, only: [] do
       resources :items, only: [:create, :update, :destroy], shallow: true do

@@ -1,6 +1,6 @@
 class Api::ListsController < ApiController
   before_action :authenticate_user
-  before_action :find_list, only: [:update, :destroy]
+  before_action :find_list, except: [:create]
 
   def create
     user = User.find(params[:user_id])
