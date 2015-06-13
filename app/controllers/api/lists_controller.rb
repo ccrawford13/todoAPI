@@ -3,8 +3,7 @@ class Api::ListsController < ApiController
   before_action :find_list, except: [:create]
 
   def create
-    user = User.find(params[:user_id])
-    list = user.lists.build(list_params)
+    list = @current_user.lists.build(list_params)
 
     if list.save
       render json: list
@@ -29,7 +28,7 @@ class Api::ListsController < ApiController
   private
 
   def find_list
-    @list = List.find(params[:id])
+    @list = @current_user.lists.find(params[:id])
   end
 
   def list_params
