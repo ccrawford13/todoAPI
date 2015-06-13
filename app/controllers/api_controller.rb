@@ -19,6 +19,7 @@ class ApiController < ApplicationController
     user = User.where(user_name: user_name).first
     if user
       user.valid_password?(password)
+      @current_user = user
     else
       permission_denied_error
     end
