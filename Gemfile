@@ -24,8 +24,6 @@ gem 'puma'
 # Haml for simplified views
 gem 'haml-rails'
 gem 'haml_lint'
-# User authentication
-gem 'devise'
 # Active Model Serializers
 gem 'active_model_serializers'
 # Faker - Seed Development Env
