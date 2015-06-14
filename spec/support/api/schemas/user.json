@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "user": {
+        "properties": {
+            "id": {
+                "type": "integer"
+            },
+            "full_name": {
+                "type": "string"
+            },
+            "user_name": {
+                "type": "string"
+            },
+            "email": {
+                "type": "string"
+            },
+            "creation_date": {
+                "type": "string"
+            }
+        }
+    }
+}
