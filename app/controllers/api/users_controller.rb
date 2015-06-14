@@ -10,7 +10,7 @@ class Api::UsersController < ApiController
     user = User.new(user_params)
     # user.password = params[:password]
     if user.save
-      render json: user, status: :success
+      render json: user
     else
       render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
     end

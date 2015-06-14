@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
     [first_name, last_name].join(" ").titleize
   end
 
+  def creation_date
+    created_at.strftime('%B %d, %Y')
+  end
+
 end
