@@ -16,7 +16,7 @@ class Api::UsersController < ApiController
   end
 
   def destroy
-    user = User.find(params[:id])
+    user = @current_user
     user.destroy
     render json: {}, status: :no_content
   end
