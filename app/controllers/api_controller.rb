@@ -3,8 +3,6 @@ class ApiController < ApplicationController
   skip_before_action :verify_authenticity_token
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
-  respond_to :json
-
   private
 
   def record_not_found
@@ -15,17 +13,9 @@ class ApiController < ApplicationController
     permission_denied_error unless authenticated?
   end
 
-  def valid_user(user_name,password)
-    user = User.where(user_name: user_name).first
-    if user
-      user.valid_password?(password)
-    else
-      permission_denied_error
-    end
-  end
-
   def authenticated?
-    authenticate_or_request_with_http_basic {|user_name, password| valid_user(user_name, password).present? }
+    authenticate_or_request_with_http_basic {|user_name, password|
+    User.find_by(user_name: user_name).try(:authenticate, password)}
   end
 
   def permission_denied_error
